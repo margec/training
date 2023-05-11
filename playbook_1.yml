@@ -1,0 +1,17 @@
+---
+
+- name: playbook_1
+  hosts: all
+  become: True
+  tasks:
+      - name: install Apache
+        apt:
+            name: apache2
+            update_cache: yes
+            state: present
+      - name: copy index.html
+        copy:
+            src: index.html
+            dest: /var/www/html   
+
+...
